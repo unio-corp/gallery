@@ -117,6 +117,75 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ---------------------------------------------------------------------------
+   Site: www-gucci-com-f475b160 — Gucci PDP gallery clone
+   The original uses proprietary Gucci Sans Pro. Substituted with Inter
+   (loaded via next/font in the root layout) for licensing reasons.
+   Scoped under .gucci-site so the template's own tokens stay untouched.
+--------------------------------------------------------------------------- */
+
+.gucci-site {
+  font-family: var(--font-inter), sans-serif;
+
+  /* Surfaces */
+  --gucci-carousel-base: #f5f5f5;
+  --gucci-scrim: rgba(68, 73, 78, 0.4); /* color(srgb .266667 .286275 .305882 / .4) */
+  --gucci-pill-surface: rgb(255, 255, 255);
+  --gucci-pill-border: rgba(0, 0, 0, 0.15);
+  --gucci-on-scrim: rgb(255, 255, 255);
+  --gucci-on-pill: rgb(0, 0, 0);
+
+  /* Type — computed values, not approximations */
+  --gucci-text-chrome: 12px;
+  --gucci-leading-chrome: 16px;
+  --gucci-tracking-chrome: -0.36px;
+  --gucci-text-counter: 9.008px;
+  --gucci-tracking-counter: -0.27024px;
+
+  /* Motion — the component's shared curve */
+  --gucci-ease: cubic-bezier(0.5, 0, 0, 1);
+  --gucci-duration: 1200ms;
+
+  /* Layout */
+  --gucci-chrome-inset: 64px;
+  --gucci-chrome-bottom: 40px;
+  --gucci-chrome-height: 32px;
+  --gucci-blur: blur(15px);
+}
+
+@media (max-width: 768px) {
+  .gucci-site {
+    --gucci-chrome-inset: 16px;
+  }
+}
+
+/*
+  The gallery scrolls natively so it inherits trackpad, touch, momentum and
+  keyboard behaviour. The scrollbar itself is hidden: the thumbnail strip
+  already reports position, and a scrollbar under the media would read as a
+  browser artefact rather than part of the design.
+*/
+.gallery-scroller {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+
+.gallery-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-scroller:focus-visible {
+  outline: 2px solid var(--gucci-on-pill);
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-scroller {
+    scroll-behavior: auto;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

@@ -47,3 +47,8 @@ next-env.d.ts
 
 # Local temp files
 temp/
+
+# Raw asset dumps from the clone scripts. Nothing in src/ reads these — the app
+# serves the curated cuts under public/images/ and public/videos/ — and the
+# download script in scripts/ regenerates them on demand.
+public/sites/
