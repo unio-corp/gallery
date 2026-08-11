@@ -52,9 +52,10 @@ export const SLIDES: readonly GallerySlide[] = [
   {
     variant: "video-full",
     // TODO: replace with the landscape desktop cut. `video-00.mp4` is 342×480
-    // (portrait), which is the mobile proportion — at full desktop width it
-    // would be twice as tall as the stills. Until the landscape file exists
-    // the video is cropped to the row height.
+    // (portrait), which is the mobile proportion. The slide sizes video by
+    // height and lets the width follow, so until the landscape file exists the
+    // desktop cut renders about half the row width and the carousel base shows
+    // at either side.
     src: `${VIDEO}/video-00.mp4`,
     srcMobile: `${VIDEO}/video-00.mp4`,
     thumb: `${IMAGES}/thumb-01.jpg`,

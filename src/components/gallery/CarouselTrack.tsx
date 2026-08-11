@@ -132,17 +132,27 @@ function Slide({
            * intrinsic height, and a portrait file at full width would then make
            * the row twice as tall as the images.
            *
-           * Required proportions: 10:7 on desktop, 5:7 on mobile.
+           * The video fills the row height and keeps its own aspect ratio, so
+           * it is never cropped vertically — whatever it overflows horizontally
+           * is clipped by this box, centred. A file narrower than the row
+           * therefore leaves the carousel base showing at the sides; the cuts
+           * are meant to be wide enough to cover it (10:7 on desktop, 5:7 on
+           * mobile).
+           *
+           * `max-w-none` is required: Tailwind's preflight caps `video` at
+           * `max-width: 100%`, which would defeat the auto width.
            */
-          <video
-            key={videoSrc}
-            className="absolute inset-0 block h-full w-full object-cover"
-            src={videoSrc}
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
+          <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+            <video
+              key={videoSrc}
+              className="block h-full w-auto max-w-none"
+              src={videoSrc}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
         ) : (
           // eslint-disable-next-line @next/next/no-img-element -- local product stills
           <img
