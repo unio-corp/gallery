@@ -61,6 +61,20 @@ docs/
 scripts/            # Asset download scripts
 ```
 
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues on `unio-corp/gallery`, managed with the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five canonical triage roles, each label string equal to its name. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `CONTEXT.md` + `docs/adr/` at the repo root. Both are created lazily by `/domain-modeling`, so neither exists yet — proceed silently if they are absent. See `docs/agents/domain.md`.
+
 ## MOST IMPORTANT NOTES
 - When launching Claude Code agent teams, ALWAYS have each teammate work in their own worktree branch and merge everyone's work at the end, resolving any merge conflicts smartly since you are basically serving the orchestrator role and have full context to our goals, work given, work achieved, and desired outcomes.
 - After editing `AGENTS.md`, run `bash scripts/sync-agent-rules.sh` to regenerate platform-specific instruction files.
