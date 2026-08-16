@@ -1,7 +1,5 @@
 /** Stills and their thumbnails. */
-const IMAGES = "/images/test";
-/** Video assets. */
-const VIDEO = "/videos";
+const IMAGES = "/images";
 
 /**
  * Catalogue stills are 2000×2800 (5:7 portrait). Nothing in the code depends on
@@ -46,33 +44,21 @@ export function slideSource(
 const PRODUCT_ALT = "Rectangular sunglasses in milky brown";
 
 /** Half-width catalogue stills, in file order. */
-const STILL_IDS = ["02", "03", "04", "05", "06", "07"];
+const STILL_IDS = ["01", "02", "03", "04", "05"];
 
 export const SLIDES: readonly GallerySlide[] = [
-  {
-    variant: "video-full",
-    // TODO: replace with the landscape desktop cut. `video-00.mp4` is 342×480
-    // (portrait), which is the mobile proportion. The slide sizes video by
-    // height and lets the width follow, so until the landscape file exists the
-    // desktop cut renders about half the row width and the carousel base shows
-    // at either side.
-    src: `${VIDEO}/video-00.mp4`,
-    srcMobile: `${VIDEO}/video-00.mp4`,
-    thumb: `${IMAGES}/thumb-01.jpg`,
-    alt: PRODUCT_ALT,
-  },
   {
     // Editorial opener: the image sits at half width with gutters either side,
     // which will later carry the copy.
     variant: "image-full",
-    src: `${IMAGES}/slide-01.jpg`,
-    thumb: `${IMAGES}/thumb-01.jpg`,
+    src: `${IMAGES}/slide-00.webp`,
+    thumb: `${IMAGES}/slide-00.webp`,
     alt: PRODUCT_ALT,
   },
   ...STILL_IDS.map<GallerySlide>((id) => ({
     variant: "image-half",
-    src: `${IMAGES}/slide-${id}.jpg`,
-    thumb: `${IMAGES}/thumb-${id}.jpg`,
+    src: `${IMAGES}/slide-${id}.webp`,
+    thumb: `${IMAGES}/slide-${id}.webp`,
     alt: PRODUCT_ALT,
   })),
 ];
